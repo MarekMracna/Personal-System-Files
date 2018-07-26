@@ -6,9 +6,7 @@ module.exports = class HTTP_Server {
         this.port = options.port;
         const http = require('http');
         const fs = require('fs');
-        this.server = http.createServer( (request, response) => {
-            if(options.index.endsWith("\\") || options.index.endsWith("/"))
-                options.index = options.index.slice(0, -1);
+        this.server = http.createServer((request, response) => {
             let req = request.url;
             while(req.startsWith(".")) {
                 req = req.slice(1, request.url.length);
@@ -35,7 +33,7 @@ module.exports = class HTTP_Server {
                     response.end(data);
                     console.log('\x1b[30m\x1b[43mServer:\x1b[0m \x1b[35mRequested file:\x1b[0m ' + fileUrl, mimetype );
                 } else {
-                    console.log('\x1b[30m\x1b[43mServer:\x1b[0m \x1b[31mFile not found:\x1b[0m ' + fileUrl);
+                    console.log('\x1b[30m\x1b[41mServer:\x1b[0m \x1b[35mFile not found:\x1b[0m ' + fileUrl);
                     response.writeHead(404, "Not Found");
                     response.end();
                 }

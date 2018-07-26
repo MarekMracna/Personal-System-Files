@@ -20,8 +20,8 @@ function testArgs(args) {
     }
     if(typeof(args.port) != "number" || isNaN(args.port)) {
         console.error("\x1b[35mserve[arg:2]\x1b[0m Expected a Number, received a " + typeof(args.index));
-        console.log("Port set to \x1b[33m8080\x1b[0m");
-        fixed.port = 8080;
+        console.log("Port set to \x1b[33m80\x1b[0m");
+        fixed.port = 80;
     } else {
         fixed.port = args.port;
     }
