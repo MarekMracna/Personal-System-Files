@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+
+let options = {
+    index: process.argv[2],
+    port:  process.argv[3]
+}
+
+require("../src/index.js").run(options);
